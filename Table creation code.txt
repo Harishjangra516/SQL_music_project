@@ -1,0 +1,103 @@
+#Let's create a new database-
+create database music_store_project;
+
+use music_store_project;
+
+#now create all the table with their column names and specifications
+#1
+create table album 
+(album_id int,
+title varchar(100), 
+artist_id int);
+
+#2
+create table artist (
+artist_id int primary key,
+name varchar(100));
+
+#3
+create table customer (
+customer_id	int primary key,
+first_name varchar(50),
+last_name varchar(50),
+company	varchar(60),
+address	varchar(100),
+city varchar(100),
+state varchar(50),
+country	varchar(50),
+postal_code	varchar(50),
+phone varchar(50),
+fax	varchar(50),
+email varchar(60),
+support_rep_id int);
+
+#4
+create table employee (
+employee_id	int primary key,
+last_name varchar(100),
+first_name varchar(100),
+title varchar(100),
+reports_to int,
+levels varchar(100),
+birthdate varchar(100),
+hire_date varchar(100),
+address	varchar(100),
+city varchar(100),
+state varchar(100),
+country	varchar(100),
+postal_code	varchar(100),
+phone varchar(100),
+fax	varchar(100),
+email varchar(100));
+
+#5
+create table genre (
+genre_id int primary key,
+name varchar(100));
+
+#6
+create table invoice (
+invoice_id int primary key,
+customer_id	int, 
+invoice_date varchar(100),
+billing_address	varchar(100),
+billing_city varchar(100),
+billing_state varchar(100),
+billing_country	varchar(100),
+billing_postal_code	varchar(100),
+total double);
+
+#7
+create table invoice_line (
+invoice_line_id	int primary key,
+invoice_id	int,
+track_id	int,
+unit_price double,
+quantity int);
+
+#8
+create table media_type (
+media_type_id int primary key,
+name varchar(100));
+
+#9
+create table playlist (
+playlist_id	int primary key,
+name varchar(100));
+
+#10
+create table playlist_track (
+playlist_id	int,
+track_id int);
+
+#11
+create table track (
+track_id int primary key,
+name varchar(100),
+album_id int,
+media_type_id int,
+genre_id int,
+composer varchar(100),
+milliseconds	int,
+bytes int,
+unit_price double);
